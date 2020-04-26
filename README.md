@@ -1,39 +1,37 @@
 # Ika2
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ika2`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Build Status](https://travis-ci.org/YutaGoto/ika2gem.svg?branch=master)](https://travis-ci.org/YutaGoto/ika2gem)
 
-TODO: Delete this and the text above, and describe your gem
+To get of Stage and Role of Splatoon2.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ika2'
+gem 'ika2', github: 'YutaGoto/ika2gem'
 ```
 
 And then execute:
 
     $ bundle install
 
-Or install it yourself as:
-
-    $ gem install ika2
-
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'ika2'
 
-## Development
+Ika2::Truf.now
+# => {"rule"=>"ナワバリバトル", "rule_ex"=>{"key"=>"turf_war", "name"=>"ナワバリバトル", "statink"=>"nawabari"}, "maps"=>["アンチョビットゲームズ", "ガンガゼ野外音楽堂"], "maps_ex"=>[{"id"=>21, "name"=>"アンチョビットゲームズ", "image"=>"https://app.splatoon2.nintendo.net/images/stage/1430e5ac7ae9396a126078eeab824a186b490b5a.png", "statink"=>"anchovy"}, {"id"=>2, "name"=>"ガンガゼ野外音楽堂", "image"=>"https://app.splatoon2.nintendo.net/images/stage/187987856bf575c4155d021cb511034931d06d24.png", "statink"=>"gangaze"}], "start"=>"2020-04-26T23:00:00", "start_utc"=>"2020-04-26T14:00:00+00:00", "start_t"=>1587909600, "end"=>"2020-04-27T01:00:00", "end_utc"=>"2020-04-26T16:00:00+00:00", "end_t"=>1587916800}
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Ika2::Truf.now.maps # => ["アンチョビットゲームズ", "ガンガゼ野外音楽堂"]
+Ika2::Ranked.now.maps # => ["ショッツル鉱山", "ムツゴ楼"]
+Ika2::League.now.rule # => "ガチエリア"
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ika2. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/ika2/blob/master/CODE_OF_CONDUCT.md).
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/YutaGoto/ika2. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/YutaGoto/ika2/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -41,4 +39,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Ika2 project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/ika2/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Ika2 project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/YutaGoto/ika2/blob/master/CODE_OF_CONDUCT.md).
