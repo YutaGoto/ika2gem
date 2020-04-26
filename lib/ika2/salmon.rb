@@ -4,8 +4,8 @@ module Ika2
   module Salmon
     class << self
       def now
-        schedule = get_schedule.first
-        if DateTime.parse(schedule.start) < DateTime.now && DateTime.now < DateTime.parse(schedule.end)
+        schedule = salmon_schedule.first
+        if open?(schedule)
           schedule
         else
           {}
@@ -13,8 +13,8 @@ module Ika2
       end
 
       def next
-        schedules = get_schedule
-        if DateTime.parse(schedules[0].start) < DateTime.now && DateTime.now < DateTime.parse(schedules[0].end)
+        schedules = salmon_schedule
+        if open?(schedules[0])
           schedules[1]
         else
           schedules[0]
@@ -23,8 +23,12 @@ module Ika2
 
       private
 
-      def get_schedule
+      def salmon_schedule
         Ika2.get_schedule('coop', 'schedule')
+      end
+
+      def open?(schedule)
+        DateTime.parse(schedule.start) < DateTime.now && DateTime.now < DateTime.parse(schedule.end)
       end
     end
   end
